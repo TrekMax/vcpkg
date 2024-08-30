@@ -21,6 +21,13 @@
         <sha512>e687c0f3acfb15c880ddac67e2821907f833cb900c6ecedb4ab5df5102604d82753c948e3c7dca6e5bcce6278a09b7d577b1afade2e133aec5b2057ac48d3c74</sha512>
         <archiveName>cmake-3.14.0-Linux-x86_64.tar.gz</archiveName>
     </tool>
+    <tool name="cmake" os="linux" arch="aarch64">
+        <version>3.30.3</version>
+        <exeRelativePath>cmake-3.30.3-linux-aarch64/bin/cmake</exeRelativePath>
+        <url>https://github.com/Kitware/CMake/releases/download/v3.30.3/cmake-3.30.3-linux-aarch64.tar.gz</url>
+        <sha512>2a52a343bd2623da65042678e5f784bf32e7e01ebfd0b3f32b955acf995128b4cecc46ddc55917fc40f5c204cf799ae3b7247b2d248147f9d5977eb6fcec4a1a</sha512>
+        <archiveName>cmake-3.30.3-linux-aarch64.tar.gz</archiveName>
+    </tool>
     <tool name="cmake" os="freebsd">
         <version>3.12.4</version>
         <exeRelativePath>cmake-3.12.4-FreeBSD-x86_64/bin/cmake</exeRelativePath>
@@ -36,6 +43,12 @@
         <archiveName>PortableGit-2.25.1-32-bit.7z.exe</archiveName>
     </tool>
     <tool name="git" os="linux">
+        <version>2.7.4</version>
+        <exeRelativePath></exeRelativePath>
+        <url></url>
+        <sha512></sha512>
+    </tool>
+    <tool name="git" os="linux" arch="aarch64">
         <version>2.7.4</version>
         <exeRelativePath></exeRelativePath>
         <url></url>
@@ -99,6 +112,13 @@
         <url>https://github.com/ninja-build/ninja/releases/download/v1.10.0/ninja-linux.zip</url>
         <sha512>ffb179ab8ea315167fcc99a8f13286e1363590185b18cf819cc73e09f2a7553790e9dc45fd1ccd0bd1d2dbf543aee3f6c0951cf9ce453a7168ffd2ac873cdd29</sha512>
         <archiveName>ninja-linux-1.10.0.zip</archiveName>
+    </tool>
+    <tool name="ninja" os="linux" arch="aarch64">
+        <version>1.12.1</version>
+        <exeRelativePath>ninja</exeRelativePath>
+        <url>https://github.com/ninja-build/ninja/releases/download/v1.12.1/ninja-linux-aarch64.zip</url>
+        <sha512>22c46abb7e6d916e11713705f78d093e9b30029cb49cadc65755908ad9f44b3f2548105174cc615a5ef86c4672b366173f18bd04c2d71710a303d952c06db334</sha512>
+        <archiveName>ninja-linux-aarch64.zip</archiveName>
     </tool>
     <tool name="ninja" os="osx">
         <version>1.10.0</version>

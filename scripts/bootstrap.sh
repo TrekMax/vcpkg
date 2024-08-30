@@ -125,7 +125,7 @@ vcpkgExtractArchive()
 
 fetchTool()
 {
-    tool=$1; UNAME=$2; __output=$3
+    tool=$1; UNAME=$2; __output=$3; arch=$4
 
     if [ "$tool" = "" ]; then
         echo "No tool name provided"
@@ -144,7 +144,15 @@ fetchTool()
     fi
 
     xmlFileAsString=`cat "$vcpkgRootDir/scripts/vcpkgTools.xml"`
-    toolRegexStart="<tool name=\"$tool\" os=\"$os\">"
+    if [ "$arch" = "x86_64" ]; then
+        toolRegexStart="<tool name=\"$tool\" os=\"$os\">"
+    elif [ "$arch" = "aarch64" ]; then
+        toolRegexStart="<tool name=\"$tool\" os=\"$os\" arch=\"$arch\">"
+    else
+        echo "Unknown arch: $arch"
+        return 1
+    fi
+
     toolData="$(extractStringBetweenDelimiters "$xmlFileAsString" "$toolRegexStart" "</tool>")"
     if [ "$toolData" = "" ]; then
         echo "Unknown tool: $tool"
@@ -217,13 +225,14 @@ selectCXX()
 
 # Preparation
 UNAME="$(uname)"
+ARCH="$(arch)"
 
 if $vcpkgUseSystem; then
     cmakeExe="cmake"
     ninjaExe="ninja"
 else
-    fetchTool "cmake" "$UNAME" cmakeExe || exit 1
-    fetchTool "ninja" "$UNAME" ninjaExe || exit 1
+    fetchTool "cmake" "$UNAME" cmakeExe "$ARCH" || exit 1
+    fetchTool "ninja" "$UNAME" ninjaExe "$ARCH" || exit 1
 fi
 if [ "$os" = "osx" ]; then
     if [ "$vcpkgAllowAppleClang" = "true" ] ; then
